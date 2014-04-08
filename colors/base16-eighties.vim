@@ -20,30 +20,30 @@ let s:gui0E = "cc99cc"
 let s:gui0F = "d27b53"
 
 " Terminal color definitions
-let s:cterm00 = "00"
-let s:cterm03 = "08"
-let s:cterm05 = "07"
-let s:cterm07 = "15"
-let s:cterm08 = "01"
-let s:cterm0A = "03"
-let s:cterm0B = "02"
-let s:cterm0C = "06"
-let s:cterm0D = "04"
-let s:cterm0E = "05"
+let s:cterm00 = "00" " background
+let s:cterm03 = "08" " grey
+let s:cterm05 = "07" " white
+let s:cterm07 = "15" " white
+let s:cterm08 = "01" " red
+let s:cterm0A = "03" " yellow
+let s:cterm0B = "02" " green
+let s:cterm0C = "06" " cyan
+let s:cterm0D = "04" " blue
+let s:cterm0E = "05" " purple
 if exists('base16colorspace') && base16colorspace == "256"
-  let s:cterm01 = "18"
-  let s:cterm02 = "19"
-  let s:cterm04 = "20"
-  let s:cterm06 = "21"
-  let s:cterm09 = "16"
-  let s:cterm0F = "17"
+  let s:cterm01 = "18" " dark grey
+  let s:cterm02 = "19" " light grey
+  let s:cterm04 = "20" " lighter grey
+  let s:cterm06 = "21" " white
+  let s:cterm09 = "16" " orange
+  let s:cterm0F = "17" " brown
 else
-  let s:cterm01 = "10"
-  let s:cterm02 = "11"
-  let s:cterm04 = "12"
-  let s:cterm06 = "13"
-  let s:cterm09 = "09"
-  let s:cterm0F = "14"
+  let s:cterm01 = "10" " dark grey
+  let s:cterm02 = "11" " light grey
+  let s:cterm04 = "12" " lighter grey
+  let s:cterm06 = "13" " white
+  let s:cterm09 = "09" " orange
+  let s:cterm0F = "14" " brown
 endif
 
 " Theme setup
@@ -132,7 +132,7 @@ endfun
 call <sid>hi("Bold",          "", "", "", "", "bold")
 call <sid>hi("Debug",         s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Directory",     s:gui0D, "", s:cterm0D, "", "")
-call <sid>hi("ErrorMsg",      s:gui08, s:gui00, s:cterm08, s:cterm00, "")
+call <sid>hi("ErrorMsg",      s:gui08, s:gui00, s:cterm08, s:cterm00, "bold")
 call <sid>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 call <sid>hi("FoldColumn",    "", s:gui01, "", "", "")
 call <sid>hi("Folded",        s:gui03, s:gui01, s:cterm03, s:cterm01, "")
@@ -143,7 +143,7 @@ call <sid>hi("MatchParen",    s:gui03, s:gui00, s:cterm03, s:cterm00,  "reverse"
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("Search",        s:gui0A, s:gui01, s:cterm0A, s:cterm01,  "reverse")
+call <sid>hi("Search",        s:gui0A, s:gui01, s:cterm01, s:cterm0A,  "bold")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
 call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Underlined",    s:gui08, "", s:cterm08, "", "")
@@ -190,7 +190,7 @@ call <sid>hi("Number",       s:gui09, "", s:cterm09, "", "")
 call <sid>hi("Operator",     s:gui05, "", s:cterm05, "", "none")
 call <sid>hi("PreProc",      s:gui0A, "", s:cterm0A, "", "")
 call <sid>hi("Repeat",       s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("Special",      s:gui0C, "", s:cterm05, "", "")
+call <sid>hi("Special",      s:gui0C, "", s:cterm0A, "", "")
 call <sid>hi("SpecialChar",  s:gui0F, "", s:cterm05, "", "")
 call <sid>hi("Statement",    s:gui08, "", s:cterm0E, "", "")
 call <sid>hi("StorageClass", s:gui0A, "", s:cterm0E, "", "")
@@ -260,7 +260,10 @@ call <sid>hi("javaScriptOpSymbols",  s:gui09, "", s:cterm07, "", "")
 call <sid>hi("javaScriptEventListenerKeywords",  s:gui09, "", s:cterm07, "", "")
 call <sid>hi("jsObjectKey",  s:gui09, "", s:cterm0D, "", "")
 call <sid>hi("jsFunctionKey",  s:gui09, "", s:cterm0D, "", "")
-call <sid>hi("jsFuncCall",  s:gui09, "", s:cterm0A, "", "")
+call <sid>hi("jsBraces",  s:gui09, "", s:cterm05, "", "")
+call <sid>hi("jsBrackets",  s:gui09, "", s:cterm05, "", "")
+call <sid>hi("jsParens",  s:gui09, "", s:cterm05, "", "")
+" call <sid>hi("jsFuncCall",  s:gui09, "", s:cterm0A, "", "")
 call <sid>hi("jsThis",  s:gui09, "", s:cterm0E, "", "")
 
 " Markdown highlighting
@@ -277,10 +280,16 @@ call <sid>hi("GitGutterAdd",     s:gui0B, s:gui01, s:cterm0B, "", "")
 call <sid>hi("GitGutterChange",  s:gui0D, s:gui01, s:cterm0A, "", "")
 call <sid>hi("GitGutterDelete",  s:gui08, s:gui01, s:cterm08, "", "")
 
-
-" GitGutter highlighting
+" NERDTree highlighting
 call <sid>hi("NERDTreeDirSlash",  s:gui0D, "", s:cterm0D, "", "")
 call <sid>hi("NERDTreeExecFile",  s:gui05, "", s:cterm05, "", "")
+
+" EasyMotion highlighting
+call <sid>hi("EasyMotionTarget", "", "", s:cterm0A, "", "bold")
+call <sid>hi("EasyMotionTarget2First", "", "", s:cterm08, "", "bold")
+call <sid>hi("EasyMotionTarget2Second", "", "", s:cterm08, "", "bold")
+" call <sid>hi("EasyMotionTargetShade", "", "", "", "", "")
+call <sid>hi("EasyMotionMoveHL", "", "", s:cterm01, s:cterm0A, "bold")
 
 " Remove functions
 delf <sid>hi
